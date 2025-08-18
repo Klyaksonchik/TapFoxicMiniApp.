@@ -12,14 +12,58 @@ body {
   text-align: center;
 }
 
+.tap-area {
+  position: relative;
+  display: inline-block;
+}
+
 #tap {
-  width: 250px;       /* размер картинки — можешь увеличить или уменьшить */
+  width: 250px;
   height: auto;
   cursor: pointer;
   user-select: none;
-  -webkit-tap-highlight-color: transparent; /* убирает синий эффект на мобилках */
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.1s ease;
 }
 
-h1 {
-  margin-bottom: 20px;
+#tap:active {
+  transform: scale(0.9);
+}
+
+.particle {
+  position: absolute;
+  font-size: 24px;
+  pointer-events: none;
+  animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(0.5);
+  }
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #007bff;
+  color: white;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
 }
