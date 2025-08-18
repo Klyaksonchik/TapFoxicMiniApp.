@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tap Game</title>
+  <link rel="preconnect" href="https://telegram.org" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="title">Tap Game</h1>
+    <div class="score-box">
+      <div id="score" class="score">0</div>
+      <div class="label">очки</div>
+    </div>
+
+    <button id="tap-btn" class="btn">Тап!</button>
+
+    <div class="row">
+      <button id="reset-btn" class="btn secondary">Сбросить</button>
+      <button id="share-btn" class="btn secondary">Поделиться</button>
+    </div>
+
+    <p class="hint">Открывай игру внутри Telegram, чтобы работали кнопка «Поделиться» и вибро-отклик</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
