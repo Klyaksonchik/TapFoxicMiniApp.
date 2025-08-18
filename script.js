@@ -10,6 +10,7 @@ tapEl.addEventListener('click', (event) => {
   counter++;
   counterEl.textContent = counter;
 
+  updateImage(); // проверяем, не пора ли поменять картинку
   createParticles(event);
 });
 
@@ -31,16 +32,31 @@ shareBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
   counter = 0;
   counterEl.textContent = counter;
+  updateImage();
 });
 
-// Функция генерации частиц
+// Функция: смена картинки при достижении порога
+function updateImage() {
+  if (counter < 20) {
+    tapEl.src = "fox1.png";
+  } else if (counter < 50) {
+    tapEl.src = "fox2.png";
+  } else if (counter < 100) {
+    tapEl.src = "fox3.png";
+  } else if (counter < 200) {
+    tapEl.src = "fox4.png";
+  } else {
+    tapEl.src = "fox5.png";
+  }
+}
+
+// Функция генерации частиц (сердечки/звёздочки)
 function createParticles(event) {
   for (let i = 0; i < 5; i++) {
     const particle = document.createElement('div');
     particle.classList.add('particle');
-    particle.textContent = '💖'; // тут можно заменить на ⭐ или 🔥
+    particle.textContent = '💖';
 
-    // Случайное направление разлёта
     const angle = Math.random() * 2 * Math.PI;
     const distance = 50 + Math.random() * 30;
     const x = Math.cos(angle) * distance + 'px';
@@ -49,14 +65,12 @@ function createParticles(event) {
     particle.style.setProperty('--x', x);
     particle.style.setProperty('--y', y);
 
-    // Позиция появления — центр картинки
     const rect = tapEl.getBoundingClientRect();
     particle.style.left = rect.width / 2 + 'px';
     particle.style.top = rect.height / 2 + 'px';
 
     tapArea.appendChild(particle);
 
-    // Удаляем через 1с
     setTimeout(() => {
       particle.remove();
     }, 1000);
