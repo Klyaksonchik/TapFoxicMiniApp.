@@ -24,7 +24,7 @@ shareBtn.addEventListener('click', () => {
       url: window.location.href
     });
   } else {
-    alert('Поделиться можно так: ' + text);
+    alert('Зацени: ' + text);
   }
 });
 
