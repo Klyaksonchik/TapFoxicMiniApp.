@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TapFox</title>
+  <title>Жмякни на Фоксика</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,8 +11,14 @@
     <h1>TapFox</h1>
     <p>Счёт: <span id="counter">0</span></p>
 
-    <!-- Вместо кнопки — картинка -->
-    <img id="tap" src="fox.png" alt="Tap target">
+    <div class="tap-area">
+      <img id="tap" src="fox.png" alt="Tap target">
+    </div>
+
+    <div class="buttons">
+      <button id="share">Поделиться</button>
+      <button id="reset">Сбросить</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
