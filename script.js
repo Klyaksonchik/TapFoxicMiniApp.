@@ -51,7 +51,7 @@ function updateImage() {
 }
 // Запрещаем двойной тап увеличения
 tapEl.addEventListener('touchstart', function(event) {
-  if (event.touches.length > 3) {
+  if (event.touches.length > 20) {
     event.preventDefault(); // запрещает pinch-zoom
   }
 }, { passive: false });
