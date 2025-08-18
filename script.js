@@ -49,7 +49,21 @@ function updateImage() {
     tapEl.src = "fox5.png";
   }
 }
+// Запрещаем двойной тап увеличения
+tapEl.addEventListener('touchstart', function(event) {
+  if (event.touches.length > 1) {
+    event.preventDefault(); // запрещает pinch-zoom
+  }
+}, { passive: false });
 
+let lastTouch = 0;
+tapEl.addEventListener('touchend', function(event) {
+  const now = new Date().getTime();
+  if (now - lastTouch <= 300) {
+    event.preventDefault(); // запрещает double-tap zoom
+  }
+  lastTouch = now;
+}, { passive: false });
 // Функция генерации частиц (сердечки/звёздочки)
 function createParticles(event) {
   for (let i = 0; i < 5; i++) {
