@@ -45,8 +45,10 @@ function updateImage() {
     tapEl.src = "fox3.png";
   } else if (counter < 200) {
     tapEl.src = "fox4.png";
-  } else {
+  } else if (counter < 500) {
     tapEl.src = "fox5.png";
+  } else {
+    tapEl.src = "fox6.png";
   }
 }
 
